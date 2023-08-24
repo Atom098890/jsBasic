@@ -16,4 +16,4 @@ function exchangeMoney(sum, currencyFrom, currencyTo) {
     }
 }
 
-console.log(exchangeMoneyT(235000, 'rub', 'usd'));
+console.log(exchangeMoney(235000, 'rub', 'usd'));
