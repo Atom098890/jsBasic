@@ -1,18 +1,19 @@
-const arr = [1, 40, -5, 10, 0];
+const arr = [1, 40, -5, 10, 0, 6];
 
 function sortArray(arr) {
-    for (let i = 1; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            if (arr[i] < arr[j]) {
-                let numderI = arr[i];
-                let numberJ = arr[j];
-                arr[i] = numberJ;
-                arr[j] = numderI;
+    let result = [...arr];
+
+    for (let i = 0; i < result.length; i++) {
+        for (let j = i + 1; j < result.length; j++) {
+            if (result[i] > result[j]) {
+                let numderI = result[i];
+                let numberJ = result[j];
+                [result[i], result[j]] = [numberJ, numderI];
             }
         }
     }
 
-    return arr
+    return result;
 }
 
 console.log(sortArray(arr));

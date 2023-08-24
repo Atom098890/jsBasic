@@ -2,19 +2,18 @@ function exchangeMoney(sum, currencyFrom, currencyTo) {
     const USD = 94;
     const EUR = 100;
 
-    if (currencyFrom === 'rub' && currencyTo === 'usd') {
-        return sum / USD;
-    } else if (currencyFrom === 'rub' && currencyTo === 'eur') {
-        return sum / EUR
+    switch (`${currencyFrom}-${currencyTo}`) {
+        case 'rub-usd':
+            return sum / USD;
+        case 'rub-eur':
+            return sum / EUR;
+        case 'usd-rub':
+            return sum * USD;
+        case 'eur-rub':
+            return sum * EUR;
+        default:
+            return null;
     }
-
-    if (currencyFrom === 'usd' && currencyTo === 'rub') {
-        return sum * USD; 
-    } else if (currencyFrom === 'eur' && currencyTo === 'rub') {
-        return sum * EUR;
-    }
-
-    return null;
 }
 
-console.log(exchangeMoney(235000, 'rub', 'usd'));
+console.log(exchangeMoneyT(235000, 'rub', 'usd'));
