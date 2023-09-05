@@ -1,6 +1,5 @@
 let cardNum = '4561-2612-1234-5467';
 
-
 function isValidCard(card) {
     const onlyNum = card.replaceAll('-', '');
     let sum = 0;
