@@ -5,12 +5,6 @@ const query = {
 };
 
 function generateQueryPath(query) {
-    let result = '';
-
-    for (const key in query) {
-        result += `${key}=${query[key]}&`
-    }
-
-    return result.slice(0, -1)
+    return Object.entries(query).map((q) => `${q[0]}=${q[1]}`).join('&');
 }
 console.log(generateQueryPath(query));
