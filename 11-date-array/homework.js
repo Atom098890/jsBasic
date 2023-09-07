@@ -1,4 +1,4 @@
-const array = ['10-02-2022', 'test', '11/12/2023', '01/00/2022', '32/12/2023'];
+const array = ['30-06-2022', 'test', '11/31/2023', '01/00/2022', '32/12/2023'];
 
 function isgValidDates(arr) {
     const result = arr
@@ -11,7 +11,8 @@ function isgValidDates(arr) {
             } else {
                 return date;
             }
-        });
+        })
+        .filter((date) => !((date.slice(3, 5) == '04' || '06' || '09' || '11') && date.slice(0, 2) == 31));
 
     return result;
 }
