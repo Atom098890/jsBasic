@@ -1,8 +1,8 @@
 const toDoList = {
     tasks: [
         {
-            title: 'Помыть посуду',
             id: 1,
+            title: 'Помыть посуду',
             priority: 1
         },
     ],
@@ -11,18 +11,17 @@ const toDoList = {
         return this.tasks.findIndex(obj => obj.id === id);
     },
 
-    addTask: function(title, priority) {
+    addTask: function(task) {
         this.tasks.push({
-            title,
             id: this.tasks.length + 1,
-            priority
+            ...task
         });
     },
 
-    updateTask: function(id, title, priority) {
+    updateTask: function(id, task) {
         const taskIndex = this.findTask(id);
         if (taskIndex !== -1) {
-            this.tasks.splice(taskIndex, 1, {title, id, priority});
+            this.tasks.splice(taskIndex, 1, { id, ...task });
         }
     },
 
@@ -39,11 +38,12 @@ const toDoList = {
 
 };
 
-toDoList.addTask('test', 40);
-toDoList.addTask('test2', 2);
-toDoList.updateTask(3, 'UPDATE', 10);
+toDoList.addTask({ title: 'test', priority: 40 });
+toDoList.addTask({ title: 'test2', priority: 10 });
+toDoList.updateTask(3, { title: 'UPDATE', priority: 10});
 console.log(toDoList.tasks);
 toDoList.sortTasks();
+console.log(toDoList.tasks);
 console.log(toDoList.tasks);
 
 
