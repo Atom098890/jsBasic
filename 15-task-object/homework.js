@@ -18,10 +18,10 @@ const toDoList = {
         });
     },
 
-    updateTask: function(id, task) {
+    updateTask: function(id, updatedTask) {
         const taskIndex = this.findTask(id);
         if (taskIndex !== -1) {
-            this.tasks.splice(taskIndex, 1, { id, ...task });
+            this.tasks[taskIndex] = {...this.tasks[taskIndex], ...updatedTask};
         }
     },
 
